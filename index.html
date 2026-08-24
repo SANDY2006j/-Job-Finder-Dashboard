@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jobly | Find. Apply. Grow.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Blobs -->
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </span>
+            Jobly
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#jobs">Jobs</a>
+            <a href="#companies">Companies</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="theme-btn" id="themeBtn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <button class="profile-btn">
+                <i class="fa-regular fa-user"></i>
+                Profile
+            </button>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <i class="fa-solid fa-sparkles"></i>
+                Find your dream career
+            </div>
+
+            <h1>
+                Find work that
+                <span>feels right.</span>
+            </h1>
+
+            <p>
+                Discover thousands of opportunities from companies
+                that are looking for talented people like you.
+            </p>
+
+            <!-- Search Box -->
+            <div class="search-box">
+
+                <div class="search-field">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <div>
+                        <small>What are you looking for?</small>
+                        <input
+                            type="text"
+                            id="jobSearch"
+                            placeholder="Job title, skills..."
+                        >
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="search-field location-field">
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+                        <small>Location</small>
+                        <input
+                            type="text"
+                            id="locationSearch"
+                            placeholder="City or remote"
+                        >
+                    </div>
+                </div>
+
+                <button class="search-btn" id="searchBtn">
+                    Search Jobs
+                </button>
+
+            </div>
+
+            <!-- Popular Searches -->
+            <div class="popular">
+
+                <span>Popular:</span>
+
+                <button onclick="quickSearch('Java')">Java</button>
+                <button onclick="quickSearch('React')">React</button>
+                <button onclick="quickSearch('Python')">Python</button>
+                <button onclick="quickSearch('UI UX')">UI/UX</button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Hero Visual -->
+        <div class="hero-visual">
+
+            <div class="floating-card card-top">
+                <div class="mini-icon purple">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <div>
+                    <strong>Java Developer</strong>
+                    <small>Remote · Full-time</small>
+                </div>
+            </div>
+
+
+            <div class="hero-circle">
+
+                <div class="circle-inner">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+
+            </div>
+
+
+            <div class="floating-card card-bottom">
+
+                <div class="mini-icon green">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <div>
+                    <strong>Application Sent</strong>
+                    <small>Software Engineer</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Statistics -->
+    <section class="stats">
+
+        <div class="stat">
+            <strong data-target="12500">0</strong>
+            <span>Active Jobs</span>
+        </div>
+
+        <div class="stat">
+            <strong data-target="850">0</strong>
+            <span>Companies</span>
+        </div>
+
+        <div class="stat">
+            <strong data-target="32000">0</strong>
+            <span>Job Seekers</span>
+        </div>
+
+        <div class="stat">
+            <strong data-target="94">0</strong>
+            <span>Success Rate %</span>
+        </div>
+
+    </section>
+
+
+    <!-- Jobs -->
+    <section class="jobs-section" id="jobs">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">EXPLORE OPPORTUNITIES</span>
+
+                <h2>
+                    Recommended <span>jobs</span>
+                </h2>
+            </div>
+
+            <div class="job-controls">
+
+                <select id="jobType">
+                    <option value="all">All Types</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Internship">Internship</option>
+                </select>
+
+                <select id="sortJobs">
+                    <option value="default">Sort by</option>
+                    <option value="salary">Highest Salary</option>
+                    <option value="latest">Latest</option>
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- Job Cards -->
+        <div class="jobs-grid" id="jobsGrid">
+
+
+            <!-- Job 1 -->
+            <article class="job-card" data-title="Java Developer"
+                     data-location="Bengaluru"
+                     data-type="Full-time"
+                     data-salary="1200000">
+
+                <div class="job-top">
+
+                    <div class="company-logo google">
+                        G
+                    </div>
+
+                    <button class="save-btn">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+
+                </div>
+
+                <div class="job-info">
+
+                    <span class="company">
+                        Google
+                        <i class="fa-solid fa-circle-check"></i>
+                    </span>
+
+                    <h3>Java Developer</h3>
+
+                    <div class="job-meta">
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Bengaluru
+                        </span>
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            Full-time
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="job-bottom">
+
+                    <div>
+                        <strong>₹8–12 LPA</strong>
+                        <small>Posted 2 days ago</small>
+                    </div>
+
+                    <button class="apply-btn">
+                        Apply <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Job 2 -->
+            <article class="job-card"
+                     data-title="Frontend Developer"
+                     data-location="Hyderabad"
+                     data-type="Remote"
+                     data-salary="1600000">
+
+                <div class="job-top">
+
+                    <div class="company-logo microsoft">
+                        M
+                    </div>
+
+                    <button class="save-btn">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+
+                </div>
+
+                <div class="job-info">
+
+                    <span class="company">
+                        Microsoft
+                        <i class="fa-solid fa-circle-check"></i>
+                    </span>
+
+                    <h3>Frontend Developer</h3>
+
+                    <div class="job-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Hyderabad
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-house"></i>
+                            Remote
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="job-bottom">
+
+                    <div>
+                        <strong>₹10–16 LPA</strong>
+                        <small>Posted 1 day ago</small>
+                    </div>
+
+                    <button class="apply-btn">
+                        Apply <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Job 3 -->
+            <article class="job-card"
+                     data-title="Python Developer"
+                     data-location="Chennai"
+                     data-type="Full-time"
+                     data-salary="1000000">
+
+                <div class="job-top">
+
+                    <div class="company-logo amazon">
+                        A
+                    </div>
+
+                    <button class="save-btn">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+
+                </div>
+
+                <div class="job-info">
+
+                    <span class="company">
+                        Amazon
+                        <i class="fa-solid fa-circle-check"></i>
+                    </span>
+
+                    <h3>Python Developer</h3>
+
+                    <div class="job-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Chennai
+                        </span>
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            Full-time
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="job-bottom">
+
+                    <div>
+                        <strong>₹7–10 LPA</strong>
+                        <small>Posted 3 days ago</small>
+                    </div>
+
+                    <button class="apply-btn">
+                        Apply <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Job 4 -->
+            <article class="job-card"
+                     data-title="UI UX Designer"
+                     data-location="Pune"
+                     data-type="Internship"
+                     data-salary="600000">
+
+                <div class="job-top">
+
+                    <div class="company-logo figma">
+                        F
+                    </div>
+
+                    <button class="save-btn">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+
+                </div>
+
+                <div class="job-info">
+
+                    <span class="company">
+                        Figma
+                        <i class="fa-solid fa-circle-check"></i>
+                    </span>
+
+                    <h3>UI/UX Designer</h3>
+
+                    <div class="job-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Pune
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            Internship
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="job-bottom">
+
+                    <div>
+                        <strong>₹4–6 LPA</strong>
+                        <small>Posted 4 days ago</small>
+                    </div>
+
+                    <button class="apply-btn">
+                        Apply <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+        <p class="no-results" id="noResults">
+            No jobs found. Try another search.
+        </p>
+
+    </section>
+
+
+    <!-- Companies -->
+    <section class="companies" id="companies">
+
+        <span class="section-label">TOP COMPANIES</span>
+
+        <h2>
+            Work with companies
+            <span>you love.</span>
+        </h2>
+
+        <div class="company-list">
+
+            <div>Google</div>
+            <div>Microsoft</div>
+            <div>Amazon</div>
+            <div>Figma</div>
+            <div>Netflix</div>
+            <div>Adobe</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta" id="about">
+
+        <div>
+
+            <span class="section-label">
+                YOUR NEXT CHAPTER
+            </span>
+
+            <h2>
+                Your dream job is
+                <span>closer than you think.</span>
+            </h2>
+
+            <p>
+                Start exploring opportunities and take the next
+                step in your career journey.
+            </p>
+
+            <button class="cta-btn" onclick="scrollToJobs()">
+                Explore Jobs
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+        <div class="cta-icon">
+            <i class="fa-solid fa-paper-plane"></i>
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">
+            <span>
+                <i class="fa-solid fa-briefcase"></i>
+            </span>
+
+            Jobly
+        </div>
+
+        <p>
+            Find. Apply. Grow. 🚀
+        </p>
+
+        <div class="socials">
+
+            <a href="#">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Application submitted!</span>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
